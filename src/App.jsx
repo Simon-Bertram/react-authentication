@@ -1,12 +1,12 @@
 import './App.css'
+import NavBar from './components/NavBar'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
   return (
     <>
-      <div>
-        <h1>React Authentication</h1>
-      </div>  
+      <NavBar />
     </>
   )
 }
