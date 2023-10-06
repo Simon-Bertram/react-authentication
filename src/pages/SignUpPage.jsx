@@ -9,14 +9,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
+  const [confirmPasswordValue, setConfirmPasswordValue] = useState('');
 
   const navigate = useNavigate();
 
-  const onLoginClicked = async () => {
+  const onSignUpClicked = async () => {
     alert('login not implemented yet');
   }
 
@@ -26,7 +27,7 @@ const LoginPage = () => {
         <Col xs={7} className='m-auto'>
           <Card className='pb-5'>
             <Card.Body>
-              <h1 className='mb-5'>Login</h1>
+              <h1 className='mb-5'>Register for an account</h1>
               {errorMessage && <Alert variant='danger'>{errorMessage}</Alert>}
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -42,7 +43,7 @@ const LoginPage = () => {
                   </Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-5" controlId="formBasicPassword">
+                <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
                   <Form.Control 
                     value={passwordValue}
@@ -52,37 +53,42 @@ const LoginPage = () => {
                   />
                 </Form.Group>
 
+                <Form.Group className="mb-5" controlId="formBasicPassword">
+                  <Form.Label>Confirm Password</Form.Label>
+                  <Form.Control 
+                    value={confirmPasswordValue}
+                    onChange={e => setConfirmPasswordValue(e.target.value)}
+                    type="password" 
+                    placeholder="Confirm Password" 
+                  />
+                </Form.Group>
                 <hr/>
-                
+
                 <Stack gap={3} className='col-md-5 mx-auto mt-4'>
                   <Button 
-                    disabled={!emailValue || !password}
-                    onClick={onLoginClicked}
-                    variant="primary" 
-                    type="submit" 
-                  >
-                    Login
-                  </Button>
-
-                  <Button 
-                    onClick={() => navigate('/forgot-password')}
-                    variant="primary" 
-                    type="submit"
-                  >
-                    Forgot your password?
-                  </Button>
-
-                  <div className='mx-auto'>
-                    <label>Don't have an account?</label>
-                  </div>
-                  <Button 
-                    onClick={() => navigate('/signup')}
+                    onClick={onSignUpClicked}
+                    disabled={
+                      !emailValue || !passwordValue ||
+                      passwordValue !== confirmPasswordValue
+                    }
                     variant="primary" 
                     type="submit"
                   >
                     Sign Up
                   </Button>
+
+                  <div className='mx-auto'>
+                    <label>Already have an account?</label>
+                  </div>
+                  <Button 
+                    onClick={() => navigate('/login')}
+                    variant="primary" 
+                    type="submit"
+                  >
+                    Login
+                  </Button>
                 </Stack>
+
               </Form>
             </Card.Body>
           </Card>
@@ -92,4 +98,4 @@ const LoginPage = () => {
   );
 }
  
-export default LoginPage;
+export default SignUpPage;

@@ -1,18 +1,13 @@
-import './App.css';
 import NavBar from './components/NavBar';
 import LoginPage from './pages/LoginPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
 
   return (
     <>
-      <header>
-        <NavBar />
-      </header>
-      <main>
-        <LoginPage />
-      </main>
+      <p>App</p>
     </>
   )
 }
