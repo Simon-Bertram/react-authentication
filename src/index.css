@@ -11,13 +11,5 @@
 }
 
 main {
-  padding: 2.5rem 0;
-}
-
-header {
-  height: 150px;
-}
-
-.bg-body-tertiary {
-  background-color: blue;
+  padding: 3.5rem 0;
 }
