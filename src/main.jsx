@@ -11,6 +11,8 @@ import Home from './pages/Home.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import ErrorPage from './error-page.jsx';
 import SignUpPage from './pages/SignUpPage.jsx';
+import UserInfoPage from './pages/UserInfoPage.jsx';
+import PrivateRoute from './auth/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,18 +20,10 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: 'login',
-        element: <LoginPage />,
-      },
-      {
-        path: 'signup',
-        element: <SignUpPage />,
-      }
+      { index: true,      element: <Home />, },
+      { path: 'login',    element: <LoginPage />, },
+      { path: 'signup',   element: <SignUpPage />, },
+      { path: 'userinfo', element: <UserInfoPage />, },
     ],
   },
 ]);
